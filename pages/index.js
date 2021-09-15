@@ -96,7 +96,7 @@ export default function Home(props) {
 	  <AlurakutMenu />
 	  <MainGrid>
 	    <div className="profileArea" style={{ gridArea: 'profileArea' }}>
-	      <ProfileSidebar githubUser={githubUser}/>
+	      <ProfileSidebar githubUser={usuarioAleatorio}/>
 	    </div>
 	    <div className="welcomeArea" style={{ gridArea: 'welcomeArea' }}>
 	      <Box>
@@ -108,7 +108,7 @@ export default function Home(props) {
 	      </Box>
 
 	      <Box>
-		<h1 className="subTitle">O que você deseja fazer?</h2>
+		<h2 className="subTitle">O que você deseja fazer?</h2>
 		<form onSubmit={function handleCriaComunidade(e) {
 			e.preventDefault();
 			const dadosDoForm = new FormData(e.target);
@@ -192,7 +192,7 @@ export default function Home(props) {
 
 export async function getServerSideProps(ctx) {
 	const cookies = nookies.get(ctx);
-	const tolen = cookies.USER_TOKEN;
+	const token = cookies.USER_TOKEN;
 	const decodedToken = jwt.decode(token);
 	const githubUser = decodedToken?.githubUser;
 

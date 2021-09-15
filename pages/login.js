@@ -6,8 +6,8 @@ export default function LoginScreen() {
 	const router = useRouter();
 	const [githubUser, setGithubuser] = React.useState('oneibn');
 
-	return {
-		<main style={{ display 'flex', flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+	return (
+		<main style={{ display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 		  <div className="loginScreen">
 		    <section className="logoArea">
 		      <img src="https://alurakut.vercel.app/logo.svg"/>
@@ -18,7 +18,7 @@ export default function LoginScreen() {
 		    </section>
 
 		    <section className="formArea">
-		      <form className="box" onSubmit={(infosDoEvento)} => {
+		      <form className="box" onSubmit={(infosDoEvento) => {
 			      infosDoEvento.preventDefault();
 			      console.log('Usuário: ', githubUser)
 			      fetch('https://alurakut.vercel.app/api/login', {
@@ -67,5 +67,5 @@ export default function LoginScreen() {
 		    </footer>
 		  </div>
 		</main>
-	}
+	)
 }
